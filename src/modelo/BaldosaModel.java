@@ -4,10 +4,27 @@
  */
 package modelo;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author julia
  */
 public class BaldosaModel {
+    private String estilo; 
+    private ImageIcon imagen;
+    
+    
+    
+     public BaldosaModel(String estilo, String rutaImagen) {
+        this.estilo = estilo;
+        this.imagen = new ImageIcon(rutaImagen);
+    }
+     
+       public ImageIcon getImagen() {
+        return imagen;
+    }
+
+   
     
 }
