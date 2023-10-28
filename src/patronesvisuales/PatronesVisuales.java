@@ -4,11 +4,9 @@
  */
 package patronesvisuales;
 import controlador.BaldosaController;
-import controlador.UsuarioController;
 import modelo.BaldosaModel;
-import modelo.UsuarioModel;
 import vista.BaldosaView;
-import vista.UsuarioView;
+import vista.BaldosaView;
 
 /**
  *
@@ -21,7 +19,10 @@ public class PatronesVisuales {
      */
     public static void main(String[] args) {
         BaldosaView vista = new BaldosaView();
+      
         vista.setVisible(true);
+         
+
 
     }
     

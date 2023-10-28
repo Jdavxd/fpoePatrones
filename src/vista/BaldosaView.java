@@ -9,6 +9,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import modelo.BaldosaModel;
+import controlador.BaldosaController;
+import modelo.BaldosaModel;
 
 /**
  *
@@ -16,23 +18,24 @@ import modelo.BaldosaModel;
  */
 public class BaldosaView extends javax.swing.JFrame {
     
-    
+    private BaldosaModel logica;
    
 
 
 
 public BaldosaView() {
         initComponents();
-
+BaldosaController baldosa = new BaldosaController();
+ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
+        logica = new BaldosaModel();
+        jLabel4.setText("Vidas:  " + logica.getVidas());
         // Crear un JLabel y establecer el ImageIcon
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img1.jpg")));       
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img6.jpg")));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img8.jpg")));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img2.jpg")));
-
-
+       // jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img2.jpg")));
         // Hacer visible la ventana
-        
+ 
         
        
 }
@@ -54,6 +57,7 @@ public BaldosaView() {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblPuntaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,9 +76,9 @@ public BaldosaView() {
 
         jLabel1.setText("jLabel1");
 
-        jLabel4.setText("jLabel4");
-
         jLabel2.setText("jLabel2");
+
+        lblPuntaje.setText("jLabel5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,7 +99,10 @@ public BaldosaView() {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(245, 245, 245)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,7 +116,9 @@ public BaldosaView() {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(171, 171, 171))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,5 +172,6 @@ public BaldosaView() {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblPuntaje;
     // End of variables declaration//GEN-END:variables
 }
