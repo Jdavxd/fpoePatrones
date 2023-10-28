@@ -20,6 +20,7 @@ public class BaldosaController {
     
     
     
+    
     public BaldosaController() {
         listaDeBaldosas = new ArrayList<>();
         inicializarBaldosas();
