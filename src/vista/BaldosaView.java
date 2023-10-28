@@ -24,13 +24,16 @@ public class BaldosaView extends javax.swing.JFrame {
     private BaldosaModel logica;
    
 
-fondoPanel fondo = new fondoPanel();
-fondoPanel2 fondo2 = new fondoPanel2();
-fondoPanel3 fondo3 = new fondoPanel3();
 
 
 
 public BaldosaView() {
+    fondoPanel fondo = new fondoPanel();
+fondoPanel2 fondo2 = new fondoPanel2();
+fondoPanel3 fondo3 = new fondoPanel3();
+fondoPanel4 fondo4 = new fondoPanel4();
+
+
         this.setContentPane(fondo);
 setResizable(false);
         initComponents();
@@ -69,6 +72,7 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
         jPanel2 = new fondoPanel2();
         jPanel4 = new fondoPanel3();
         jPanel5 = new fondoPanel3();
+        jPanel6 = new fondoPanel4();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +80,7 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 124, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,12 +131,23 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
             .addGap(0, 201, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 283, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,8 +160,13 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)))
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +181,9 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(230, 230, 230))
             .addGroup(layout.createSequentialGroup()
-                .addGap(226, 226, 226)
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -213,6 +235,7 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
 
     
@@ -265,6 +288,37 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
         super.paint(g);
     }
 }
+    
+    
+    
+   class fondoPanel4 extends JPanel {
+    private Image imagen4;
+
+ 
+
+    @Override
+    public void paint(Graphics g) {
+        imagen4 = new ImageIcon(getClass().getResource("/img/corazonVerde.png")).getImage();
+        //g.drawImage(imagen4, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+        int corazonWidth = imagen4.getWidth(this)/6;
+        int corazonHeight = imagen4.getHeight(this)/6;
+
+        // Espacio entre cada corazón
+          int espacioEntreCorazones = 10;
+
+        // Dibuja tres corazones en el panel
+        for (int i = 0; i < 3; i++) {
+            int x = i * (corazonWidth + espacioEntreCorazones);
+            int y = 0;
+            g.drawImage(imagen4, x, y, corazonWidth, corazonHeight, this);
+        }
+    }
+}
+    
+    
+    
 
 
 
