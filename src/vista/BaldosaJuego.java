@@ -1,4 +1,3 @@
-
 package vista;
 import controlador.BaldosaController;
 import funcionalidadesAparte.BotonSinFondo;
