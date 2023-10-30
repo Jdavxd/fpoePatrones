@@ -5,8 +5,8 @@
 package patronesvisuales;
 import controlador.BaldosaController;
 import modelo.BaldosaModel;
-import vista.BaldosaJuego;
-
+import vista.BaldosaView;
+import vista.BaldosaView;
 
 /**
  *
@@ -18,9 +18,9 @@ public class PatronesVisuales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        BaldosaJuego vista = new BaldosaJuego();
+        BaldosaView vista = new BaldosaView();
       
-        
+        vista.setVisible(true);
          
 
 

@@ -7,7 +7,6 @@ import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 /**
  *
  * @author julia rengifo
@@ -17,7 +16,6 @@ public class BaldosaController {
     private ArrayList<ImageIcon> listaDeBaldosas;
     private final int altoBaldosa = 100;
     private final int anchoBaldosa = 100;
-    
     
     
     
@@ -39,26 +37,11 @@ public class BaldosaController {
         return new ImageIcon(image);
     }
 }
-    
-    
-    public class BotonSinFondo extends JButton {
-    
-    public BotonSinFondo() {
-            inicializar();
-        }
-
-    private void inicializar() {
-        setRolloverEnabled(true);
-        setFocusPainted(false);
-        setBorderPainted(false);
-        setContentAreaFilled(false);
-    }
-}
 
     
        private void inicializarBaldosas() {
         ImageIcon baldosa;
-        String rutaAux = "/imgBaldosas/numero.jpg";
+        String rutaAux = "\\src\\img\\imagen.jpg";
 
         for (int i = 1; i <= 14; i++) {
             
