@@ -12,9 +12,17 @@ import modelo.BaldosaModel;
 import controlador.BaldosaController;
 import modelo.BaldosaModel;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
 /**
  *
  * @author julia
+ * @author genaro
  */
 public class BaldosaView extends javax.swing.JFrame {
     
@@ -58,6 +66,7 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblPuntaje = new javax.swing.JLabel();
+        btnPlayer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +88,12 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
         jLabel2.setText("jLabel2");
 
         lblPuntaje.setText("jLabel5");
+
+        btnPlayer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,6 +119,10 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
                         .addGap(35, 35, 35)
                         .addComponent(lblPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPlayer)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,11 +141,17 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(304, 304, 304))
+                .addGap(191, 191, 191)
+                .addComponent(btnPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlayerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +192,7 @@ ImageIcon imagenAleatoria = baldosa.getImgBaldosaAleatoria();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPlayer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

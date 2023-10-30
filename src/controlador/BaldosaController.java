@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 /**
  *
  * @author julia rengifo
+ * @author genaro vegas
  */
 public class BaldosaController {
     
