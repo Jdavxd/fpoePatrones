@@ -68,20 +68,6 @@ public class BaldosaModel {
         return vidas;
     }
     
-       public void aumentarTiempoDeCambio() {
-        if(tiempoDeCambio < 2){
-            tiempoDeCambio += 0.2;
-        }
-        
-    }
-    
-        public void disminuirTiempoDeCambio() {
-        if(tiempoDeCambio > 1){
-            tiempoDeCambio -= 0.2;
-        }
-        
-    }
-    
     public void reiniciarBaldosasSinMostrar(){
         baldosasOcultas.clear();
         for(int i = 0; i<8; i++){
