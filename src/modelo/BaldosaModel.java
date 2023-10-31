@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 /**
  *
  * @author julian y genaro
+ * 
  */
 public class BaldosaModel {
     private ArrayList<Integer> baldosasOcultas;
