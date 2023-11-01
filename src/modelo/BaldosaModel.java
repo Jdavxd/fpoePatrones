@@ -1,21 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
- *
- * @author julian y genaro
- * 
+ * MINIPROYECTO 2
+ *@author Julian Rengifo 2241016
+ *@author Genaro Vegas 2241850
+ * Clase que contiene la logica del juego
  */
 public class BaldosaModel {
-    private ArrayList<Integer> baldosasOcultas;
+    private int numeroDeBaldosasAMostrar;//Mientras mayor el numero, mas dificil
+    private ArrayList<Integer> baldosasSinMostrar;
     private ArrayList<Integer> baldosasAMostrar;
-    private int numeroDeBaldosasAMostrar;
     private int vidas;
     private int puntaje;
     private int puntajeASumar;
@@ -28,28 +25,30 @@ public class BaldosaModel {
         vidas = 3;
         puntaje = 0;
         puntajeASumar = 5;
-        tiempoDeCambio = 2;
+        tiempoDeCambio = 1;
         aciertos = 0;
         errores = 0;
         
-        baldosasOcultas = new ArrayList<>();
+        baldosasSinMostrar = new ArrayList<>();
         for(int i = 0; i<8; i++){
-            baldosasOcultas.add(i);
+            baldosasSinMostrar.add(i);
         }
         
         baldosasAMostrar = new ArrayList<>();
         for(int i = 0; i<numeroDeBaldosasAMostrar; i++){
-            int cualBaldosa = (int) (Math.random() * baldosasOcultas.size());
-            baldosasAMostrar.add(baldosasOcultas.get(cualBaldosa));
-            baldosasOcultas.remove(cualBaldosa);
+            int cualBaldosa = (int) (Math.random() * baldosasSinMostrar.size());
+            baldosasAMostrar.add(baldosasSinMostrar.get(cualBaldosa));
+            baldosasSinMostrar.remove(cualBaldosa);
         }
         
     }
     
+    //indica si la baldosa si se esta mostrando
     public boolean baldosaMostrandose(int cualNumero){
         return baldosasAMostrar.indexOf(cualNumero) != -1;
     }
     
+    //retorna una baldosa aleatoria en pantalla para cambiarla
     public int baldosaACambiar(){
         return baldosasAMostrar.get((int) (Math.random() *
                 baldosasAMostrar.size()));
@@ -62,6 +61,10 @@ public class BaldosaModel {
     public void errorCometido(){
         vidas--;
         if(numeroDeBaldosasAMostrar > 3) {
+            numeroDeBaldosasAMostrar--;
+        }
+        if(puntajeASumar > 5) {
+            puntajeASumar /= 2;
         }
     }
     
@@ -70,9 +73,9 @@ public class BaldosaModel {
     }
     
     public void reiniciarBaldosasSinMostrar(){
-        baldosasOcultas.clear();
+        baldosasSinMostrar.clear();
         for(int i = 0; i<8; i++){
-            baldosasOcultas.add(i);
+            baldosasSinMostrar.add(i);
         }
     }
     
@@ -81,9 +84,9 @@ public class BaldosaModel {
         
         baldosasAMostrar.clear();
         for(int i = 0; i<numeroDeBaldosasAMostrar; i++){
-            int cualBaldosa = (int) (Math.random() * baldosasOcultas.size());
-            baldosasAMostrar.add(baldosasOcultas.get(cualBaldosa));
-            baldosasOcultas.remove(cualBaldosa);
+            int cualBaldosa = (int) (Math.random() * baldosasSinMostrar.size());
+            baldosasAMostrar.add(baldosasSinMostrar.get(cualBaldosa));
+            baldosasSinMostrar.remove(cualBaldosa);
         }
         
     }
@@ -105,6 +108,20 @@ public class BaldosaModel {
     
     public int getPuntaje() {
         return puntaje;
+    }
+    
+    public void disminuirTiempoDeCambio() {
+        if(tiempoDeCambio > 1){
+            tiempoDeCambio -= 0.2;
+        }
+        
+    }
+    
+    public void aumentarTiempoDeCambio() {
+        if(tiempoDeCambio < 2){
+            tiempoDeCambio += 0.2;
+        }
+        
     }
     
     public double getTiempoDeCambio() {
