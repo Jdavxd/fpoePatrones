@@ -1,4 +1,5 @@
 
+
 package patronesvisuales;
 import vista.VentanaInicial;
 
@@ -15,7 +16,11 @@ public class PatronesVisuales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         VentanaInicial ventanaInicial = new VentanaInicial(0);
+
+
+
     }
     
 }

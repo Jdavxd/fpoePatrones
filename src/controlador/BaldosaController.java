@@ -2,6 +2,8 @@
 package controlador;
 
 import funcionalidadesAparte.metodosImagen;
+import java.awt.Image;
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
@@ -30,11 +32,24 @@ public class BaldosaController {
             
             String nuevaRuta = rutaAux.replace("numero",i+"");
             
-            baldosa = metodosImagen.establecerIcon(nuevaRuta, anchoBaldosa, altoBaldosa);
+            baldosa = metodosUtiles.establecerIcon(nuevaRuta, anchoBaldosa, altoBaldosa);
             listaDeBaldosas.add(baldosa);
         }
 
     }
+    public class metodosUtiles {
+        public static ImageIcon establecerIcon(String rutaArchivo, int ancho, int alto)
+            {
+        
+        String rutaAbsoluta = new File("").getAbsolutePath();
+        ImageIcon imagen = new ImageIcon(rutaAbsoluta.concat(rutaArchivo));
+        Image image = (imagen).getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+        
+        return new ImageIcon(image);
+    }
+}
+
+
     
     public ImageIcon getImgBaldosa(int cualBaldosa){
         return listaDeBaldosas.get(cualBaldosa);
