@@ -1,60 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
-import java.awt.Image;
-import java.io.File;
+
+import funcionalidadesAparte.metodosImagen;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+
 /**
- *
- * @author julia rengifo
- * @author genaro vegas
+ *@author Julian Rengifo 2241016
+ *@author Genaro Vegas 2241850
+ * Clase que funciona como controlador de las imagenes de las baldosas
  */
 public class BaldosaController {
-    
+
     private ArrayList<ImageIcon> listaDeBaldosas;
-    private final int altoBaldosa = 100;
-    private final int anchoBaldosa = 100;
-    
-    
-    
-    
+    private final int altoBaldosa = 80;
+    private final int anchoBaldosa = 80;
+
+    //constructor
     public BaldosaController() {
         listaDeBaldosas = new ArrayList<>();
         inicializarBaldosas();
     }
-    
-    
-    public class metodosUtiles {
-        public static ImageIcon establecerIcon(String rutaArchivo, int ancho, int alto)
-            {
-        
-        String rutaAbsoluta = new File("").getAbsolutePath();
-        ImageIcon imagen = new ImageIcon(rutaAbsoluta.concat(rutaArchivo));
-        Image image = (imagen).getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-        
-        return new ImageIcon(image);
-    }
-}
 
-    
-       private void inicializarBaldosas() {
+    private void inicializarBaldosas() {
         ImageIcon baldosa;
-        String rutaAux = "\\src\\img\\imagen.jpg";
+        String rutaAux = "\\src\\imagenes\\baldosas\\numero.png";
 
         for (int i = 1; i <= 14; i++) {
             
-            String nuevaRuta = rutaAux.replace("imagen",i+"");
+            String nuevaRuta = rutaAux.replace("numero",i+"");
             
-            baldosa = metodosUtiles.establecerIcon(nuevaRuta, anchoBaldosa, altoBaldosa);
+            baldosa = metodosImagen.establecerIcon(nuevaRuta, anchoBaldosa, altoBaldosa);
             listaDeBaldosas.add(baldosa);
         }
 
     }
-       
-       
+    
     public ImageIcon getImgBaldosa(int cualBaldosa){
         return listaDeBaldosas.get(cualBaldosa);
     }
@@ -63,6 +44,5 @@ public class BaldosaController {
         return listaDeBaldosas.get((int) (Math.random() * 
                 listaDeBaldosas.size()));
     }
-    
-  
+
 }
